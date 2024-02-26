@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for character set and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the webpage -->
+    <title>online_Image</title>
+    <!-- Internal stylesheet with some styling for the webpage -->
+    <style>
+        /* Resetting default margin, padding, and box-sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        /* Styling for the body */
+        body {
+            line-height: 1.6;
+            background-color: #383636;
+        }
+
+        /* Styling for the main heading (h1) */
+        h1 {
+            font-size: 40px;
+            filter: drop-shadow(-10px 10px 3px #ca2222d8);
+            border-radius: 10px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 10px 60px 10px;
+            box-shadow: 0 0 10px rgb(210, 102, 24);
+            background: linear-gradient(#fce721e8, #b16b01);
+        }
+
+        /* Styling for the search form */
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        /* Styling for the search input field */
+        #Search-input {
+            width: 60%;
+            max-width: 400px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 9px 4px 6px #181819a2;
+            filter: drop-shadow(-10px 10px 3px #868282d8);
+            font-size: 18px;
+            font-weight: 800;
+            outline: none;
+            color: #e48613;
+        }
+
+        /* Styling for the search button */
+        #Search-button {
+            padding: 10px 30px;
+            margin-left: 20px;
+            border-radius: 10px;
+            border: none;
+            font-weight: bold;
+            background: linear-gradient(#ff9c2c, #da881d);
+            filter: drop-shadow(8px 8px 2px #868282d8);
+            cursor: pointer;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+            opacity: 0.9;
+        }
+
+        /* Hover effect for the search button */
+        #Search-button:hover {
+            scale: 1.1;
+            background: linear-gradient(#fff641, #ff9100);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+
+        /* Styling for the container of search results */
+        .Search-results {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            background-color: rgb(166, 127, 55);
+            border-radius: 10px;
+            margin: 0 auto;
+        }
+
+        /* Styling for individual search results */
+        .Search-result {
+            margin: 15px;
+            margin-bottom: 60px;
+            width: 30%;
+            background-color: #cead34;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+            filter: drop-shadow(8px 8px 2px #836a07d8);
+        }
+
+        /* Styling for images within search results */
+        .Search-result img {
+            width: 100%;
+            padding: 15px;
+            height: 230px;
+            object-fit: cover;
+        }
+
+        /* Hover effect for images within search results */
+        .Search-result img:hover {
+            opacity: 0.75;
+        }
+
+        /* Styling for links within search results */
+        .Search-result a {
+            text-transform: capitalize;
+            color: #1b1b1b;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 0px 15px 15px 15px;
+            display: block;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        /* Styling for the "Show More" button */
+        .more_button {
+            padding: 10px 40px;
+            cursor: pointer;
+            display: none;
+            margin: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #f7f1f1;
+            border: none;
+            background: linear-gradient(#f4a940, #7a3704);
+        }
+
+        /* Hover effect for the "Show More" button */
+        .more_button:hover {
+            border: 2px solid black;
+        }
+
+        /* Media query for responsive design (max-width: 800px) */
+        @media screen and (max-width: 800px) {
+            .Search-result {
+                width: 95%;
+                margin: 10px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            body {
+                background-color: #222222;
+            }
+
+            form {
+                margin-bottom: 30px;
+                width: 300px;
+                margin-left: 20px;
+            }
+
+            #Search-input {
+                font-size: 12px;
+                scale: 1.1;
+            }
+
+            h1 {
+                margin-bottom: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main heading -->
+    <h1>ImAgE SeArCh AppLiCtiON..</h1>
+    <!-- Search form -->
+    <form action="">
+        <input type="text" id="Search-input" placeholder="Search for image">
+        <button id="Search-button">Search</button>
+    </form>
+    <!-- Container for search results -->
+    <div class="Search-results">
+        <!-- Individual search result with image and link -->
+        <div class="Search-result">
+            <img src="./coconut tree.jpg" alt="Coconut Trees">
+            <a href="https://unsplash.com/photos/a-man-standing-between-palm-trees-in-a-desert-G3SoFDDCh0E"
+                target="_blank">Coconut Trees</a>
+        </div>
+        <!-- Repeat similar structure for other search results -->
+
+    </div>
+    <!-- "Show More" button -->
+    <button class="more_button">Show More</button>
+</body>
+<!-- JavaScript script for handling image search functionality -->
+<script>
+    // Unsplash Access Key
+    const accesKey = "bBYnCKLcI2KybWD3mlMyhDcPpGV70jL6hxAhu_IjzPk"
+    // DOM elements
+    const formEele = document.querySelector("form");
+    const inputEele = document.querySelector("#Search-input");
+    const SearchResult = document.querySelector(".Search-results");
+    const moreButton = document.querySelector(".more_button");
+
+    // Variables for search query and page number
+    let inputDATA = "";
+    let page = 1;
+
+    // Function to perform image search
+    async function searchIMG() {
+        // Get the search query from the input field
+        inputDATA = inputEele.value;
+        // Construct the API URL with the search query and Unsplash Access Key
+        const url = `https://api.unsplash.com/search/photos?page=${page}&query=${inputDATA}&client_id=${accesKey}`
+        // Fetch data from Unsplash API
+        const response = await fetch(url);
+        const data = await response.json();
+        const results = data.results
+
+        // If it's the first page, clear previous search results
+        if (page === 1) {
+            SearchResult.innerHTML = ""
+        }
+
+        // Loop through the results and create HTML elements for each image
+        results.map((result) => {
+            const imageWrapper = document.createElement("div");
+            imageWrapper.classList.add("Search-result");
+            const image = document.createElement("img");
+            image.src = result.urls.small;
+            image.alt = result.alt_description;
+            const imageLink = document.createElement("a");
+            imageLink.href = result.links.html;
+            imageLink.target = "_blank";
+            imageLink.textContent = result.alt_description;
+
+            imageWrapper.appendChild(image);
+            imageWrapper.appendChild(imageLink);
+            SearchResult.appendChild(imageWrapper);
+        });
+
+        // Increment the page number for the next search
+        page++
+        // Display the "Show More" button if more than one page
+        if (page > 1) {
+            moreButton.style.display = "block"
+        }
+    }
+
+    // Event listener for form submission
+    formEele.addEventListener("submit", (event) => {
+        event.preventDefault();
+        // Reset page number and perform image search
+        page = 1;
+        searchIMG();
+    });
+
+    // Event listener for "Show More" button click
+    moreButton.addEventListener("click", (event) => {
+        // Perform image search for the next page
+        searchIMG();
+    });
+</script>
+</html>
